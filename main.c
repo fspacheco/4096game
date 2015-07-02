@@ -69,31 +69,37 @@ int main(int argc, char **argv)
     al_init_ttf_addon();
     if(!al_init_image_addon())
     {
+	printf("Problema com inicialização image_addon");
         return -1;
     }
     font1 = al_load_ttf_font("pirulen.ttf",12,0 );
     if (!font1)
     {
+	printf("Problema ao carregar pirulen.ttf");
         return -1;
     }
     image = al_load_bitmap("iceblue2.png");
     if(!image)
     {
+	printf("Problema ao carregar iceblue2.png");
         return -1;
     }
-    image1 = al_load_bitmap("iceblue1.png");
+    image1 = al_load_bitmap("IceBlue1.png");
     if(!image1)
     {
+	printf("Problema ao carregar IceBlue1.png");
         return -1;
     }
     image2 = al_load_bitmap("NG.png");
     if(!image2)
     {
+	printf("Problema ao carregar NG.png");
         return -1;
     }
     image3 = al_load_bitmap("retanrosa.png");
-    if(!image2)
+    if(!image3)
     {
+	printf("Problema ao carregar retanrosa.png");
         return -1;
     }
     al_draw_bitmap(image,0,0,0);
@@ -121,7 +127,7 @@ int main(int argc, char **argv)
     {
         return -1;
     }
-    al_flip_display;
+    al_flip_display();
 //LOGICA//
     while(!doexit)
     {
@@ -339,7 +345,7 @@ int main(int argc, char **argv)
                     score+=matriz[ql][qc];
                 }
             }
-            al_draw_textf(font1, al_map_rgb(255,255,255),365,68,ALLEGRO_ALIGN_CENTER,"%i",score);
+            al_draw_textf(font1, al_map_rgb(255,255,255),365,68,ALLEGRO_ALIGN_CENTRE,"%i",score);
         }
 //FUNÇÃO GERA RETANGULO//
         x1_ini=30.0, y1_ini=170.0, x2_ini=100.0, y2_ini=240;
@@ -427,7 +433,7 @@ int main(int argc, char **argv)
                 {
                     c1=255, c2=255, c3=255;
                 }
-                al_draw_textf(font2, al_map_rgb(c1,c2,c3),text2x,text2y,ALLEGRO_ALIGN_CENTER, "%i",matriz[ql][qc]);
+                al_draw_textf(font2, al_map_rgb(c1,c2,c3),text2x,text2y,ALLEGRO_ALIGN_CENTRE, "%i",matriz[ql][qc]);
                 text2y=text2y+80;
             }
 
@@ -453,7 +459,7 @@ int main(int argc, char **argv)
                     {
                         c1=255, c2=211, c3=193;
                         matriz[ql][qc]=0;
-                        al_draw_textf(font2, al_map_rgb(c1,c2,c3),text2x,text2y,ALLEGRO_ALIGN_CENTER, "%i",matriz[ql][qc]);
+                        al_draw_textf(font2, al_map_rgb(c1,c2,c3),text2x,text2y,ALLEGRO_ALIGN_CENTRE, "%i",matriz[ql][qc]);
                         text2y=text2y+80;
                     }
                     text2y=text2y_ini;
